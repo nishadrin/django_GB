@@ -6,7 +6,7 @@
   {% for item in products %}
   <li class="catalog_li">
     <div class="catalog_photo">
-      <a href="{{ item.page }}"><img class="catalog_picture_gor" src="{% static item.img %}" alt="Гарнитура {{ item.name }}"> </a>
+      <a href="{{ item.page }}"><img class="catalog_picture_gor" src="{% static item.img %}" alt="{{ item.name }}"> </a>
     </div>
     <div class="catalog_text">
       <a href="{{ item.page }}">Гарнитура JBL T205BT</a>

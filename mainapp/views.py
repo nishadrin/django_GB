@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import Product, ProductCategory
 
 # Create your views here.
 links_main_menu = [
@@ -42,21 +43,12 @@ def contacts(request):
     return render(request, 'mainapp/contacts.html', context)
 
 def catalog(request):
-    products = [
-    {
-        "name": "JBL T205BT",
-        "page": "#",
-        "img": "img/JBL_T205BT.jpg"
-    },
-    {
-        "name": "JBL E25BT BLK",
-        "page": "#",
-        "img": "img/JBL_E25BT_BLK.jpg"
-    }
-    ]
+    products = Product.objects.all()
+    product_cat = ProductCategory.objects.all()
     context = {
         "title_page": 'Каталог',
         "products": products,
-        'links_main_menu': links_main_menu
+        'links_main_menu': links_main_menu,
+        'product_cat': product_cat,
     }
     return render(request, 'mainapp/catalog.html', context)
