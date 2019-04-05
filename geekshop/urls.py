@@ -18,9 +18,12 @@ from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
 import mainapp.views as mainapp
+import authapp.views as authapp
+from django.conf.urls import include
 
 urlpatterns = [
     path('', mainapp.index, name='index'),
+    path('auth/', include('authapp.urls', namespace='auth')),
     path('contacts/', mainapp.contacts, name='contacts'),
     path('catalog/', mainapp.catalog, name='catalog'),
     path('admin/', admin.site.urls),
